@@ -9,4 +9,4 @@ routes = [
 
 [assets]
 directory = "./dist"
-html_handling = "none"
+html_handling = "auto-trailing-slash"
