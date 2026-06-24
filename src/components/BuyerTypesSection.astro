@@ -1,0 +1,26 @@
+---
+interface Props {
+  buyerTypes: string[];
+}
+
+const { buyerTypes } = Astro.props;
+---
+
+<section id="buyers" class="max-w-7xl mx-auto px-6 pt-16 pb-20 border-t border-white/10">
+  <div class="text-center mb-12">
+    <div class="inline text-xs font-bold tracking-[2px] text-cyan-400 mb-3">TARGET MARKET</div>
+    <h2 class="section-header tracking-tighter">Ideal Buyers</h2>
+    <p class="mt-4 max-w-lg mx-auto text-slate-400">hvacr.contact is a strategic acquisition for organizations operating at the highest level of industrial refrigeration.</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-lg">
+      {buyerTypes.map((buyer) => (
+        <div class="flex items-start gap-x-3">
+          <i class="fa-solid fa-check text-emerald-400 mt-1.5"></i>
+          <span>{buyer}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

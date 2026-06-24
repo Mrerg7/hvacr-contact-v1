@@ -1,0 +1,39 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import HeroSection from '../components/HeroSection.astro';
+import WhySection from '../components/WhySection.astro';
+import BuyerTypesSection from '../components/BuyerTypesSection.astro';
+import AcquireSection from '../components/AcquireSection.astro';
+import InquiryModal from '../components/InquiryModal.astro';
+import Footer from '../components/Footer.astro';
+
+const site = await getEntry('site', 'default');
+const data = site!.data;
+---
+
+<BaseLayout title={`${data.domain} | Industrial Refrigeration & HVACR — Premium Domain for Sale`}
+             description={`${data.domain} — The definitive premium domain for the industrial refrigeration and HVACR industry. Positioned for ammonia, CO₂, and glycol system specialists, cold storage, food processing, and mission-critical cooling applications. Now available for acquisition.`}>
+  <Nav />
+  <main>
+    <HeroSection
+      domain={data.domain}
+      heroImage={data.heroImage}
+      trustPoints={data.trustPoints}
+      price={data.price}
+    />
+    <WhySection cards={data.valueCards} />
+    <BuyerTypesSection buyerTypes={data.buyerTypes} />
+    <AcquireSection
+      price={data.price}
+      email={data.email}
+      terms={data.acquisitionTerms}
+    />
+  </main>
+  <Footer
+    disclaimer={data.disclaimer}
+    footerLinks={data.footerLinks}
+  />
+  <InquiryModal />
+</BaseLayout>
